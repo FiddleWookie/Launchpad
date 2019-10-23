@@ -1,0 +1,9 @@
+[
+    {
+        "id":"Documentation_catalog",
+        "title":"UI5 Doco tools",
+        "tiles":[
+            "JSDOCO"
+        ]
+    }
+]

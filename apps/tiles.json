@@ -1,0 +1,13 @@
+{
+    "JSDOCO":{
+        "size":"1x1",
+        "tileType": "sap.ushell.ui.tile.StaticTile",
+        "title": "JSDoco app",
+        "properties":{
+            "targetURL":"#jsdoc-display",
+            "icon":"sap-icon://inbox",
+            "subtitle": "API doco",
+            "title": "JSDoco app"
+        }
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "defaultRenderer": "fiori2",
+    "renderers": {
+        "fiori2": {
+            "componentData": {
+                "config": {
+                    "search": "hidden"
+                }
+            }
+        }
+    },
+
+    "applications": {
+        "jsdoc-display": {
+            "additionalInformation": "SAPUI5.Component=be.fiddle.jsdoc",
+            "applicationType": "URL",
+            "url": "./",
+            "title": "JSDoco application",
+            "navigationMode": "embedded"
+        }
+    },
+
+    "services":{
+        "LaunchPage":{
+            "adapter":{
+                "config":{
+                    "catalogs":[ 
+                        {
+                            "id":"Documentation_catalog",
+                            "title":"UI5 Doco tools",
+                            "tiles":[ 
+                                {
+                                    "id":"JSDOCO",
+                                    "size":"1x1",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "title": "JSDoco app",
+                                    "properties":{
+                                        "targetURL":"#jsdoc-display",
+                                        "icon":"sap-icon://inbox",
+                                        "subtitle": "API doco",
+                                        "title": "JSDoco app"                            
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "groups":[ 
+                        {
+                            "id":"Documentation_group",
+                            "title":"UI5 Doco tools",
+                            "isPreset":true,
+                            "isVisible":true,
+                            "isGroupLocked":true,
+                            "tiles":[
+                                {
+                                    "id":"JSDOCO",
+                                    "size":"1x1",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "title": "JSDoco app",
+                                    "properties":{
+                                        "targetURL":"#jsdoc-display",
+                                        "icon":"sap-icon://inbox",
+                                        "subtitle": "API doco",
+                                        "title": "JSDoco app"                            
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "ClientSideTargetResolution":{
+            "adapter":{
+                "config":{
+                    "inbounds":{
+                        "pluginSample": {
+                            "resolutionResult":{
+                                "additionalInformation":"SAPUI5.Component=be.FiddleWookie.IssueLogger"
+                            },
+                            "config": { }
+                        }
+                    }
+                }
+            }
+        }
+    }    
+}
