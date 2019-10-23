@@ -1,0 +1,5 @@
+{
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "chrome --incognito --headless --remote-debugging-port=9222 --disable-web-security --user-data-dir='C:/chrome_temp'",
+    "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
+    "editor.tabSize": 2
+}

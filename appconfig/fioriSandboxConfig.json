@@ -10,6 +10,15 @@
         }
     },
 
+    "bootstrapPlugins":{
+        "IssueLogger":{
+            "component":"be.FiddleWookie.IssueLogger",
+            "url":"plugins/sample/issueLogger",
+            "sap-ushell-plugin-type":"RendererExtensions",
+            "enabled":true
+        }
+    },
+
     "applications": {
         "jsdoc-display": {
             "additionalInformation": "SAPUI5.Component=be.fiddle.jsdoc",
@@ -21,6 +30,9 @@
     },
 
     "services":{
+        "PluginManager":{
+            
+        },
         "LaunchPage":{
             "adapter":{
                 "config":{

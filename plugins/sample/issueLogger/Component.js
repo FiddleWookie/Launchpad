@@ -56,12 +56,12 @@ sap.ui.define([
     **/
    IssueLogger.prototype.init = function () {
         let renderExtension = $.sap.getObject("sap.ushell.renderers.fiori2.RendererExtensions");
-debugger;
+
         renderExtension.addHeaderEndItem(
             new ShellHeadItem({
                 icon: "sap-icon://warning",
                 //press: this.onButtonPress.bind(this),
-                visible: false
+                visible: true
             }), 
             "home", 
             "app"
