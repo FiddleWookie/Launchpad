@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 	var multiparty = require("multiparty");
 
 	// Only Used for the connect grunt task
-	var fnHandleFileUpload = function(bSave, req, res, next) {
+	var handleFileUpload = function(bSave, req, res, next) {
 		var bError, count, aFiles, form;
 
 		bError = false;
@@ -166,7 +166,7 @@ module.exports = function(grunt) {
 					// inject a custom middleware into the array of default middlewares
 					middlewares.unshift(
 						connect().use("/upload", function(req, res, next) {
-							fnHandleFileUpload(true, req, res, next); //ONLY FOR LOCAL DEV!!!
+							handleFileUpload(true, req, res, next); //ONLY FOR LOCAL DEV!!!
 							return undefined;
 						})
 					);
@@ -287,7 +287,7 @@ module.exports = function(grunt) {
 		compress: {
 			dist: {
 				options: {
-					archive: "<%= dir.dist %>/infrabel-ui5-project.zip"
+					archive: "<%= dir.dist %>/project.zip"
 				},
 				expand: true,
 				cwd: "<%= dir.dist %>/resources",
