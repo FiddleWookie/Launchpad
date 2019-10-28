@@ -1,4 +1,6 @@
 #ignore the distribution folder
 ./dist
-
-
+#and the node modules
+./node_modules
+#also ignore the user credentials
+./project/sapdeployuser.json
