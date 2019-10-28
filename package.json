@@ -1,0 +1,39 @@
+{
+  "name": "ui5-showcase",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "keywords": [
+    "UI5"
+  ],
+  "author": {
+    "name": "FiddleWookie",
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FiddleWookie/Launchpad.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified. Please add some.\" && exit 1",
+    "start": "grunt",
+    "build": "grunt build",
+    "lint": "grunt lint",
+    "deploy": "grunt sapdeploy"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "1.1.0",
+    "grunt-eslint": "^19.0.0",
+    "grunt-nwabap-ui5uploader": "^0.2.0",
+    "grunt-openui5": "^0.15.0",
+    "grunt-timer": "^0.6.0",
+    "multiparty": "^4.1.3",
+    "object-merge": "^2.5.1",
+    "jsdoc": "^3.6.3",
+    "jsdoc-x": "^4.0.3"
+  }
+}
