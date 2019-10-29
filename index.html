@@ -7,8 +7,20 @@
 
     <script>
         window["sap-ushell-config"] = { };
-        //run over your plugin config.json here and generate plugin entries in the sap-ushell-config
-        //do the same for the app/ .json files
+        //the launchpad config is in the ./appconfig/fioriSandboxConfig.json file.
+        //you'll notice it has samples for apps and plugins.
+
+        /*
+        * We'll need a plugin or app to list all available plugins... yeah, inception...
+        * that plugin (or app) shows the list, and when a plugin is selected, it becomes enabled on the launchpad.
+        * deselect-> disable. (obviously)
+        * so,... todo:
+        * 1) figure out how to list all plugins (easy, window["sap-ushell-config"].bootstrapPlugins, right? 
+        *    Maybe not so easy. What if we don't list them immediately in the bootstrap?)
+        * 2) figure out a way to disable plugins (HAH!)
+        * 3) figure out a way to enable plugins
+        * 4) build the app/plugin...
+        */
 
     </script>
 

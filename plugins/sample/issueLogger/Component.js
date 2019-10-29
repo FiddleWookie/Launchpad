@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/Component",
     "sap/ushell/ui/shell/ShellHeadItem",
-], function (Component, ShellHeadItem) {
+    "sap/ui/core/Fragment"
+], function (Component, ShellHeadItem, Fragment) {
     "use strict";
 
     /**
@@ -53,21 +54,55 @@ sap.ui.define([
     * @instance
     * @memberof be.FiddleWookie.IssueLogger.Component
     * @author Tom Van Doorslaer
+    * @todo the header item should be a draggable source, that triggers an event on a drop target.
     **/
-   IssueLogger.prototype.init = function () {
+    IssueLogger.prototype.init = function () {
         let renderExtension = $.sap.getObject("sap.ushell.renderers.fiori2.RendererExtensions");
 
         renderExtension.addHeaderEndItem(
             new ShellHeadItem({
                 icon: "sap-icon://warning",
-                //press: this.onButtonPress.bind(this),
-                visible: true
+                press: this.openIssueLogger.bind(this),
+                visible: true,
+                text: this.getModel("i18n").getResourceBundle().getText("issuelogger.title")
             }), 
             "home", 
             "app"
         );
 
     };
+
+    /**
+    * open up a popover from the issuelogger, showing the default information panel with the quick help for the issue logger
+    * @method openIssueLogger
+    * @public
+    * @instance
+    * @memberof be.FiddleWookie.IssueLogger.Component
+    * @author Tom Van Doorslaer
+    **/
+    IssueLogger.prototype.openIssueLogger = function(event){
+        const source = event.getSource();
+
+        Fragment.load({
+            name:"be.FiddleWookie.IssueLogger.fragments.Help", 
+            controller:this
+        }).then(function( popover ){
+            this._help = popover;
+            popover.openBy(source); //I seem to recall there being a setting to prevent the dialog from being registered on the core.
+            popover.setModel(this.getModel("i18n"), "i18n");
+
+            //self destruct
+            popover.attachEvent("afterClose", {}, 
+                function(){ 
+                    this._help.destroy();
+                    this._help = null;
+                }, this );
+        }.bind(this));
+    };
+
+    IssueLogger.prototype.closeHelp = function(event ){
+        if (this._help) this._help.close();
+    }
 
     return IssueLogger;
 });

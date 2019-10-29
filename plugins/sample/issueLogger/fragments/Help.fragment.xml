@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+  xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core">
+
+	<ResponsivePopover
+    placement="Auto"
+    showCloseButton="true"> 
+    <content>
+      <!-- Thinking out loud here: 
+      I would like to have a help page describing how to use the issue logger here.
+      That would be the default page.
+      another popover fragment can then be used to pop-up when a UI element is selected somewhere on the screen.
+      We can then show the details of that element, the component it belongs to, the git repo, author and a link to the issue board -->
+    </content>       
+
+    <endButton>
+      <Button text="{i18n>issuelogger.action.close}" icon="sap-icon://reject" press="closeHelp" />
+		</endButton>                        
+	</ResponsivePopover>
+</core:FragmentDefinition>

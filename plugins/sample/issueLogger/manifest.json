@@ -5,6 +5,7 @@
 		"type": "application",
 		"title": "{{apptitle}}",
 		"description": "{{appdesc}}",
+		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "1.0.0"
 		}
@@ -51,6 +52,14 @@
 		"contentDensities": {
 			"compact": true,
 			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "be.FiddleWookie.IssueLogger.i18n.i18n"
+				}
+			}
 		}
 	},
 	"sap.platform.hcp": {
