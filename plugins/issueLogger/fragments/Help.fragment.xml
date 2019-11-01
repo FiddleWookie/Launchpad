@@ -1,9 +1,11 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
   xmlns:u="sap.ui.unified"
-	xmlns:core="sap.ui.core">
+	xmlns:core="sap.ui.core"
+  xmlns:dnd="sap.ui.core.dnd">
 
 	<ResponsivePopover
+    modal="false"
     placement="Auto"
     showCloseButton="true"> 
     <content>
@@ -12,7 +14,23 @@
       That would be the default page.
       another popover fragment can then be used to pop-up when a UI element is selected somewhere on the screen.
       We can then show the details of that element, the component it belongs to, the git repo, author and a link to the issue board -->
+
+
+
     </content>       
+
+    <beginButton>
+      <Button 
+        text="{i18n>issueLogger.action.identify}">
+        <dragDropConfig>
+          <dnd:DragInfo
+				    dragStart="onDrag"
+            dragEnd="onDrop"/>
+          <dnd:DropInfo
+            drop="onDrop" />
+        </dragDropConfig>
+      </Button>
+    </beginButton>
 
     <endButton>
       <Button text="{i18n>issuelogger.action.close}" icon="sap-icon://reject" press="closeHelp" />

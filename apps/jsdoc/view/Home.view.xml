@@ -1,0 +1,11 @@
+<mvc:View	controllerName="be.fiddle.jsdoco.controller.Home" 
+			xmlns:html="http://www.w3.org/1999/xhtml" 
+			xmlns:mvc="sap.ui.core.mvc" 
+			xmlns="sap.m"
+			height="100%"
+			displayBlock="true" >
+    <Page   title="{classes>alias}" 
+            showHeader="true" >
+        <Text text="bla" />
+    </Page>
+</mvc:View>

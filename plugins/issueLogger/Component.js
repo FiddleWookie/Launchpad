@@ -1,8 +1,8 @@
 sap.ui.define([
     "sap/ui/core/Component",
-    "sap/ushell/ui/shell/ShellHeadItem",
-    "sap/ui/core/Fragment"
-], function (Component, ShellHeadItem, Fragment) {
+    "sap/ui/core/Fragment",
+    "sap/ui/core/dnd/DragDropInfo"
+], function (Component, Fragment,DragDropInfo) {
     "use strict";
 
     /**
@@ -57,19 +57,19 @@ sap.ui.define([
     * @todo the header item should be a draggable source, that triggers an event on a drop target.
     **/
     IssueLogger.prototype.init = function () {
-        let renderExtension = $.sap.getObject("sap.ushell.renderers.fiori2.RendererExtensions");
-
-        renderExtension.addHeaderEndItem(
-            new ShellHeadItem({
+        this._headerItem = sap.ushell.Container.getRenderer("fiori2").addHeaderEndItem(
+            "sap.ushell.ui.shell.ShellHeadItem", 
+            {
                 icon: "sap-icon://warning",
-                press: this.openIssueLogger.bind(this),
+                press: function(event){ 
+                    this.openIssueLogger(event.getSource()); 
+                }.bind(this),
                 visible: true,
                 text: this.getModel("i18n").getResourceBundle().getText("issuelogger.title")
-            }), 
+            }, 
             "home", 
             "app"
         );
-
     };
 
     /**
@@ -80,8 +80,7 @@ sap.ui.define([
     * @memberof be.FiddleWookie.IssueLogger.Component
     * @author Tom Van Doorslaer
     **/
-    IssueLogger.prototype.openIssueLogger = function(event){
-        const source = event.getSource();
+    IssueLogger.prototype.openIssueLogger = function(source){
 
         Fragment.load({
             name:"be.FiddleWookie.IssueLogger.fragments.Help", 
@@ -103,6 +102,24 @@ sap.ui.define([
     IssueLogger.prototype.closeHelp = function(event ){
         if (this._help) this._help.close();
     }
+
+    IssueLogger.prototype.onDrag = function(event){
+
+    };
+
+    IssueLogger.prototype.onDrop = function(event){
+        let browserEvent = event.getParameter("browserEvent");        
+        let target = document.elementFromPoint(browserEvent.clientX, browserEvent.clientY );
+        //debugger;
+        if (!target.id) {
+            //can't get any info on this element
+        } else {
+            let control = sap.ui.getCore().byId(target.id);
+            this.closeHelp();
+            setTimeout( function(){ this.openIssueLogger(control) }.bind(this),200);
+        }
+
+    };
 
     return IssueLogger;
 });

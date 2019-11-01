@@ -1,0 +1,64 @@
+{
+	"_version": "0.0.1",
+	"sap.app":{
+		"_version": "0.0.1",
+		"id": "be.fiddle.jsdoco",
+		"type": "library",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"offline":true
+	},
+	"sap.ui": {
+		"_version": "1.52.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_bluecrystal", "sap_belize_plus", "sap_fiori3"]
+	},
+	"sap.ui5": {
+		"_version": "1.52.0",
+		"rootView": {
+			"viewName": "be.fiddle.jsdoco.view.Home",
+			"type": "XML",
+			"id":"root"
+		},
+		"dependencies": {
+			"minUI5Version": "1.52.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "be.fiddle.jsdoco.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{"uri":"css/style.css"}]
+		}
+	}
+}
