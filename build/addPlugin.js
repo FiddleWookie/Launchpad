@@ -1,6 +1,8 @@
 const fs = require("fs");
 var find = require('find');
 
+console.log("process args:");
+console.log(process.argv);
 let pluginname = process.argv[2];
 let pluginpath = "node_modules/"+pluginname;
 let rawdata = fs.readFileSync('./appconfig/fioriSandboxConfig.json');
