@@ -1,0 +1,14 @@
+{
+  "name": "fiori-launchpad",
+  "version": "1.0.0",
+  "description": "Demo Fiori Launchpad",
+  "keywords": [
+    "fiori",
+    "launchpad"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "find": "^0.3.0",
+    "fs": "0.0.1-security"
+  }
+}
