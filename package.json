@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "find": "^0.3.0",
+    "fiori-user-picture-plugin": "0.0.1",
     "fs": "0.0.1-security"
   }
 }
