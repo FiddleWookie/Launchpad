@@ -10,11 +10,13 @@ let config = JSON.parse(rawdata);
 
 let component = find.fileSync("Component.js",pluginpath);
 let componentPath = component && Array.isArray(component) && component[0];
-
+console.log(componentPath);
 let componentParentPathParts = componentPath && componentPath.split("\\");
+console.log(componentParentPathParts);
 let componentParentPath = componentParentPathParts && componentParentPathParts[componentParentPathParts.length-2];
+console.log(componentParentPath);
 pluginpath += "/"+componentParentPath;
-
+console.log(pluginpath);
 let componentFile = fs.readFileSync(componentPath, 'utf8');
 let regex = /\".*\.Component\"/g;
 let found = componentFile.match(regex);
