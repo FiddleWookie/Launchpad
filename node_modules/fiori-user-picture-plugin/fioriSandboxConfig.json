@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"ZBC_USER_PICTURES_UIPlugin": {
+			"component": "be.elia.bc.flp.ui.pic",
+			"url": "../../../../../webapp/"
+		}
+	}
+}
