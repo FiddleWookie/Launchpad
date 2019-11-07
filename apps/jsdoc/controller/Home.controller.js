@@ -4,8 +4,8 @@ sap.ui.define([
 	"use strict";
 
 	/**
-	 * @class be.infra.sap.jsdoco.controller.Home
-	 * @alias be.infra.sap.jsdoco.controller.Home
+	 * @class be.fiddle.jsdoco.controller.Home
+	 * @alias be.fiddle.jsdoco.controller.Home
 	 * @public
 	 * @extends sap.ui.core.mvc.controller
 	 * @author Tom Van Doorslaer
@@ -13,7 +13,7 @@ sap.ui.define([
 	 * 
 	 */
 	var Home = Controller.extend("be.fiddle.jsdoco.controller.Home", 
-	/**@lends be.infra.sap.jsdoco.controller.Home.prototype **/
+	/**@lends be.fiddle.jsdoco.controller.Home.prototype **/
 	{ });
 	
 

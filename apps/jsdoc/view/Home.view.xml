@@ -6,6 +6,9 @@
 			displayBlock="true" >
     <Page   title="{classes>alias}" 
             showHeader="true" >
-        <Text text="bla" />
+        <List
+					items="{docs>/}">
+					<StandardListItem title="{docs>id}" />
+				</List>
     </Page>
 </mvc:View>
