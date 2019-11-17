@@ -5,10 +5,11 @@
 			height="100%"
 			displayBlock="true" >
 
-	<SplitApp 	id="librarySplit" 
-				orientationChange="onOrientationChange"				
-				mode="ShowHideMode"
-				height="100%">
+	<SplitApp 	
+		id="librarySplit" 
+		orientationChange="onOrientationChange"				
+		mode="ShowHideMode">
+		
 		<masterPages>
 		</masterPages>
 

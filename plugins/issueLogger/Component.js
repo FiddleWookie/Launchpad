@@ -1,8 +1,8 @@
 sap.ui.define([
     "sap/ui/core/Component",
     "sap/ui/core/Fragment",
-    "sap/ui/core/dnd/DragDropInfo"
-], function (Component, Fragment,DragDropInfo) {
+    "sap/m/MessageToast"
+], function (Component, Fragment, Toast) {
     "use strict";
 
     /**
@@ -62,14 +62,22 @@ sap.ui.define([
             {
                 icon: "sap-icon://warning",
                 press: function(event){ 
+                    this.getModel("identity").setProperty("/help/visible", true);
                     this.openIssueLogger(event.getSource()); 
                 }.bind(this),
                 visible: true,
                 text: this.getModel("i18n").getResourceBundle().getText("issuelogger.title")
             }, 
-            "home", 
-            "app"
+            true, 
+            false,
+            ["app","home"]
         );
+
+        this.getModel("identity").setData({
+            help:{
+                visible:true
+            }
+        });
     };
 
     /**
@@ -89,6 +97,7 @@ sap.ui.define([
             this._help = popover;
             popover.openBy(source); //I seem to recall there being a setting to prevent the dialog from being registered on the core.
             popover.setModel(this.getModel("i18n"), "i18n");
+            popover.setModel(this.getModel("identity"), "identity");
 
             //self destruct
             popover.attachEvent("afterClose", {}, 
@@ -110,15 +119,88 @@ sap.ui.define([
     IssueLogger.prototype.onDrop = function(event){
         let browserEvent = event.getParameter("browserEvent");        
         let target = document.elementFromPoint(browserEvent.clientX, browserEvent.clientY );
-        //debugger;
-        if (!target.id) {
+
+        let control = this.recursiveGetId(target);
+        if (!control) {
             //can't get any info on this element
+            this.setNoIdentity();
         } else {
-            let control = sap.ui.getCore().byId(target.id);
-            this.closeHelp();
-            setTimeout( function(){ this.openIssueLogger(control) }.bind(this),200);
+            this.setIdentity(control);
         }
 
+    };
+
+    IssueLogger.prototype.setNoIdentity = function(){
+        Toast.show(this.getModel("i18n").getResourceBundle().getText("issuelogger.identity.error"));
+        this.getModel("identity").setData({
+            help:{
+                visible:true
+            }
+        });
+    }
+
+    IssueLogger.prototype.setIdentity = function(control){
+        this.closeHelp();
+        let view = this.recursiveGetView(control);
+        let controller = view && view.getController();
+        let component = controller && controller.getOwnerComponent();
+            
+        this.getModel("identity").setData( {
+            control:{
+                id:control.getId(),
+                view:view && view.getProperty("viewName"),
+                controller:controller && controller.getMetadata()._sClassName,
+                component:component && component.getManifest().name,
+                gitUrl:component && component.gitUrl
+            },
+            help:{
+                visible:false
+            }
+        });
+
+        setTimeout( function(){ 
+            this.openIssueLogger(control) 
+        }.bind(this),400);
+    };
+
+    IssueLogger.prototype.recursiveGetId = function(htmlControl){
+        if (htmlControl && htmlControl.id ){
+            let ui5Control = sap.ui.getCore().byId(htmlControl.id);
+            if (!ui5Control){
+                return this.recursiveGetId(htmlControl.offsetParent);
+            } else {
+                return ui5Control;
+            }
+        } else {
+            return null;
+        }
+    };
+
+    IssueLogger.prototype.recursiveGetView = function(ui5Control){
+        if (ui5Control ){
+            if (!ui5Control.getControllerName ){
+                return this.recursiveGetView(ui5Control.getParent() );
+            } else {
+                return ui5Control;
+            }
+        } else {
+            return null;
+        }
+    };
+
+    IssueLogger.prototype.getDocoUrl = function(id){
+        let path = id && id.split(".").join("/");
+        return "#jsdoc-display&/" + path;
+    };
+
+    IssueLogger.prototype.getDocoUrlFromControl = function(id){
+        let control = sap.ui.getCore().byId(id);
+        if (control) {
+            let type = control.getMetadata()._sClassName
+            let path = type.split(".").join("/");
+            return "#jsdoc-display&/" + path;            
+        }
+        return "";
     };
 
     return IssueLogger;

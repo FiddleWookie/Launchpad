@@ -21,15 +21,16 @@
         </subHeader>
 
         <content>
-            <Tree 	selectionChange="onItemSelect" 
-                    mode="SingleSelectMaster"
-                    items="{
-                        path: 'classes>/', 
-                        filters:[{path:'key', operator:'Contains', value1:''}]
-                    }"
-                    id="treeLib"
-                    showUnread="true">
-                <StandardTreeItem title="{classes>key}" height="1.5rem" class="fiddleBadge">
+            <Tree 	
+                selectionChange="onItemSelect" 
+                mode="SingleSelectMaster"
+                items="{
+                    path: 'classes>/', 
+                    filters:[{path:'key', operator:'Contains', value1:''}]
+                }"
+                id="treeLib"
+                showUnread="true">
+                <StandardTreeItem title="{classes>key}" class="fiddleBadge">
                     <customData>
                         <core:CustomData key="badge" value="{path:'classes>todo',formatter:'.getLength' }" writeToDom="{path:'classes>todo',formatter:'.getVisibleFromArray' }"/>
                         <core:CustomData key="fiddleBadgeError" value="" writeToDom="true"/>
@@ -39,12 +40,6 @@
             </Tree>
         </content>
 
-        <footer>
-            <Toolbar>
-                <Button icon="sap-icon://upload-to-cloud"
-                        press="onUploadDoco"/>            
-            </Toolbar>
-        </footer>
     </Page>
 
 </mvc:View>

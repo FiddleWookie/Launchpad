@@ -16,39 +16,23 @@ sap.ui.define([
 	/**@lends be.fiddle.jsdoco.controller.ClassDetail.prototype **/
 	{ });
 	
-	ClassDetail.prototype.onInit = function(){
-		this._oRouter = this.getOwnerComponent().getRouter();
-		this._oRouter.attachRoutePatternMatched(this.onRouteMatched, this);
-	};
-	
 	ClassDetail.prototype.onRouteMatched = function(oEvent, oData){
-		var sRoute = oEvent.getParameters().name;
-		var sPath = oEvent.getParameters().arguments["node*"];
-		if(sPath){
-			sPath = sPath.replace(/\./g,"/"); //replace dots by slashes
-		}
+		Controller.prototype.onRouteMatched.apply(this,arguments);
 
-		//store the sPath on component level
-		//we do this, because the onRouteMatched could very well be called before the model is loaded
-		//this would result in a navigation to the "oops" page
-		//but after the model has been loaded and converted into the library structure, we trigger a navigation
-		this.getOwnerComponent().setPath(sPath);
+		let sRoute = oEvent.getParameters().name;
+		let sPath = oEvent.getParameters().arguments["node*"];
+		if (sPath && !sPath.startsWith("/")) {
+			sPath = "/" + sPath;
+		}
 
 		if(sRoute === "ClassDisplay"){
 			//try to retrieve the property from the model
 			this.getView().bindElement({"path":sPath, "model":"classes"});
 		}
-
-		if(sRoute === "NotFound"){
-		}
-
-		if(sRoute === "Home"){
-			
-		}
 	};
 
 	ClassDetail.prototype.onOpenMasterFromDetail = function(oEvent){
-		this._oRouter.navTo("Classes");
+		this.navTo("Classes");
 	};
 
 	ClassDetail.prototype.getMethodSignature= function (sMethod, aParams, oReturn){
@@ -64,7 +48,7 @@ sap.ui.define([
 		}
 
 		sSig += " );";
-		return sSig; 
+		return "<code>" + sSig + "</code>"; 
 	};
 
 	ClassDetail.prototype.getReturnSignature = function(oReturn){
@@ -106,7 +90,14 @@ sap.ui.define([
 
 		return sType;
 	};
-	
 
+	ClassDetail.prototype.isArrayVisible = function(aArray){
+		return (Array.isArray(aArray) && aArray.length > 0);
+	};
+
+	ClassDetail.prototype.getJSON=function(oObject){
+		return JSON.stringify(oObject);
+	};
+	
 	return ClassDetail;
 });

@@ -56,7 +56,10 @@
 					"bundleName": "be.fiddle.jsdoco.i18n.i18n"
 				}
 			},
-			"docs":{
+			"modules":{
+				"type":"sap.ui.model.json.JSONModel"
+			},
+			"classes":{
 				"type":"sap.ui.model.json.JSONModel"
 			}
 		},
@@ -81,6 +84,11 @@
 					"viewName": "Home",
 					"viewId": "Home"
 				},
+				"Namespaces":{
+					"controlAggregation": "masterPages",
+					"viewName": "Namespaces",
+					"viewId": "Namespaces"
+				},
 				"ClassDisplay":{
 					"controlAggregation": "detailPages",
 					"viewName": "ClassDisplay",
@@ -99,17 +107,23 @@
 			},
 			"routes": [
 				{
-					"name": "",
+					"name": "home",
 					"pattern": "",
 					"greedy": false,
-					"target": ["Home"]
+					"target": ["Namespaces","Home"]
 				},
 				{
 					"name": "ClassDisplay",
 					"pattern": ":node*:",
 					"greedy": false,
 					"target": ["Classes","ClassDisplay"]
-				}
+				},
+				{
+					"name": "ClassNotFound",
+					"pattern": "/ClassNotFound/:node*:",
+					"greedy": false,
+					"target": ["Classes","NotFound"]
+				}				
 			]
 		}
 

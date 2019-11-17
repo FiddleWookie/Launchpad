@@ -23,7 +23,7 @@
         "jsdoc-display": {
             "additionalInformation": "SAPUI5.Component=be.fiddle.jsdoco",
             "applicationType": "URL",
-            "url": "./apps/jsdoc",
+            "url": "./apps/jsdoc/webapp",
             "title": "JSDoco application",
             "navigationMode": "embedded"
         }

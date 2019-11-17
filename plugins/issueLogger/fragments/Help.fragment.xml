@@ -2,21 +2,75 @@
 	xmlns="sap.m"
   xmlns:u="sap.ui.unified"
 	xmlns:core="sap.ui.core"
+  xmlns:f="sap.ui.layout.form"
   xmlns:dnd="sap.ui.core.dnd">
 
 	<ResponsivePopover
     modal="false"
     placement="Auto"
-    showCloseButton="true"> 
+    showCloseButton="true"
+    contentWidth="30rem"
+    title="What is this?"> 
     <content>
       <!-- Thinking out loud here: 
       I would like to have a help page describing how to use the issue logger here.
       That would be the default page.
       another popover fragment can then be used to pop-up when a UI element is selected somewhere on the screen.
       We can then show the details of that element, the component it belongs to, the git repo, author and a link to the issue board -->
+      <VBox
+        visible="{identity>/help/visible}">
+        <Title level="H3" text="Information Assistant" />
+        <FormattedText htmlText="Drag the 'Identify'-button around to the control on which you want to get assistance. A new popup will display
+        additional information on the control. If information on GIT-repo is available, there will be a link to log an issue.
+        If the control's owner-component is recognized, there will be a link to the JS-API documentation."/>
+      </VBox>
 
+      <VBox
+        visible="{= !${identity>/help/visible} }">
+        <f:SimpleForm
+          editable="false"
+          layout="ResponsiveGridLayout"
+          title="Address"
+          labelSpanXL="3"
+          labelSpanL="3"
+          labelSpanM="3"
+          labelSpanS="4"
+          adjustLabelSpan="false"
+          emptySpanXL="4"
+          emptySpanL="4"
+          emptySpanM="4"
+          emptySpanS="0"
+          columnsXL="1"
+          columnsL="1"
+          columnsM="1"
+          singleContainerFullSize="false" >
+          <f:content>        
+            <Label text="Element ID" />          
+            <Link 
+              href="{path:'identity>/control/id', formatter:'.getDocoUrlFromControl'}"
+              text="{identity>/control/id}" />
 
+            <Label text="View ID" />
+            <Text text="{identity>/control/view}" />
+            
+            <Label text="Controller ID" />
+            <Link 
+              href="{path:'identity>/control/controller', formatter:'.getDocoUrl'}"
+              text="{identity>/control/controller}" />
+            
+            <Label text="Component ID" />
+            <Link 
+              href="{path:'identity>/control/component', formatter:'.getDocoUrl'}"
+              text="{identity>/control/component}" />
 
+            <Label text="GIT REPO" />
+            <Link 
+              href="{path:'identity>/control/gitUrl'}"
+              text="{identity>/control/gitUrl}" />
+
+          </f:content>
+        </f:SimpleForm>
+      </VBox>
     </content>       
 
     <beginButton>
