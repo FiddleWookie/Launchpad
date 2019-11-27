@@ -1,10 +1,12 @@
 {
   "name": "ui5-showcase",
   "version": "1.0.0",
-  "description": "",
+  "description": "Demo Fiori Launchpad",
   "private": true,
   "keywords": [
-    "UI5"
+    "UI5",
+    "fiori",
+    "launchpad"
   ],
   "author": {
     "name": "FiddleWookie"
@@ -19,6 +21,11 @@
     "build": "grunt build",
     "lint": "grunt lint",
     "deploy": "grunt sapdeploy"
+  },
+    "dependencies": {
+    "find": "^0.3.0",
+    "fiori-user-picture-plugin": "0.0.1",
+    "fs": "0.0.1-security"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
