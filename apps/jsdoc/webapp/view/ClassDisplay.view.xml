@@ -1,0 +1,176 @@
+<mvc:View	controllerName="be.fiddle.jsdoco.controller.ClassDetail" 
+			xmlns:html="http://www.w3.org/1999/xhtml" 
+			xmlns:uxap="sap.uxap"
+			xmlns:mvc="sap.ui.core.mvc" 
+            xmlns:code="sap.ui.codeeditor"
+			xmlns="sap.m"
+			height="100%"
+			displayBlock="true" >
+    <Page   title="{classes>alias}" 
+            showHeader="true"
+			showNavButton="{appSettings>/isPhone}"
+			navButtonPress="onOpenMasterFromDetail"
+			class="MasterButton">
+        <uxap:ObjectPageLayout  
+            id="Detail" 
+            enableLazyLoading="true" 
+            useIconTabBar="false">
+            <uxap:headerContent>
+                <Label text="{i18n>be.fiddle.jsdoco.class.memberof}" labelFor="linkMemberof"/>    
+                <Link text="{classes>memberof}" href="#/{classes>memberof}" id="memberOf" />
+            </uxap:headerContent>
+
+            <uxap:sections>
+                <!--overview-->
+                <uxap:ObjectPageSection id="tabDescription" title="{i18n>be.fiddle.jsdoco.class.overview}">
+                    <!--description-->
+                    <uxap:ObjectPageSubSection title="{i18n>be.fiddle.jsdoco.class.description}">
+                        <FormattedText htmlText="{classes>classdesc}" />							
+                    </uxap:ObjectPageSubSection>
+
+                    <!--todo-->
+                    <uxap:ObjectPageSubSection title="{i18n>be.fiddle.jsdoco.class.todo}" visible="{path:'classes>todo', formatter:'.isArrayVisible'}">
+                        <List items="{classes>todo}">
+                            <StandardListItem title="{classes>}" />
+                        </List>
+                    </uxap:ObjectPageSubSection>
+                </uxap:ObjectPageSection>
+
+                <!--properties and constants-->
+                <uxap:ObjectPageSection id="tabProperties" title="{i18n>be.fiddle.jsdoco.class.properties}" visible="{path:'classes>properties', formatter:'.isArrayVisible'}">
+                    <uxap:ObjectPageSubSection title="">
+                        <Table 
+                            items="{
+                                path:'classes>properties', 
+                                sorter:{path:'name'},
+                                templateShareable=true
+                            }" 
+                            width="100%"
+                            popinLayout="true" >
+                            <columns>
+                                <Column width="15rem"><Text text="{i18n>be.fiddle.jsdoco.class.properties.name}"/></Column>
+                                <Column width="10rem"><Text text="{i18n>be.fiddle.jsdoco.class.properties.type}"/></Column>
+                                <Column width="8rem"><Text text="{i18n>be.fiddle.jsdoco.class.properties.default}"/></Column>
+                                <Column width="100%" minScreenWidth="Desktop" demandPopin="true" popinDisplay="WithoutHeader"><Text text="{i18n>be.fiddle.jsdoco.class.properties.description}"/></Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <ObjectIdentifier title="{classes>name}" />
+                                        <Text text="{path:'classes>type/names', formatter:'.getParamtype'}" />
+                                        <Text text="{classes>default}" />
+                                        <VBox  >
+                                            <FormattedText htmlText="{classes>description}" />
+                                            <ObjectStatus
+                                                text="{classes>access}"
+                                                state="Success" 
+                                                visible="{= ${classes>access} === 'public'}"/>
+                                            <ObjectStatus
+                                                text="{classes>access}"
+                                                state="Error" 
+                                                visible="{= ${classes>access} === 'private'}"/>
+                                        </VBox>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </uxap:ObjectPageSubSection>
+                </uxap:ObjectPageSection>
+
+                <!--events-->
+                <uxap:ObjectPageSection 
+                    id="tabEvents" 
+                    title="{i18n>be.fiddle.jsdoco.class.events}" 
+                    visible="{path:'classes>events', formatter:'.isArrayVisible'}"
+                    subSections="{path:'classes>events', sorter:{path:'name'}}">
+                    <uxap:ObjectPageSubSection title="{classes>name}">
+                        <FormattedText htmlText="{classes>description}" />
+                    </uxap:ObjectPageSubSection>
+                </uxap:ObjectPageSection>
+
+                <!--methods-->
+                <uxap:ObjectPageSection 
+                    id="tabMethods" 
+                    title="{i18n>be.fiddle.jsdoco.class.methods}" 
+                    visible="{path:'classes>methods', formatter:'.isArrayVisible'}"
+                    subSections="{
+                        path:'classes>methods', 
+                        sorter:{path:'name'},
+                        templateShareable:true
+                    }">
+                    <uxap:ObjectPageSubSection title="{classes>name}">
+                        <VBox>
+                            <FormattedText htmlText="{classes>description}" width="100%"/>
+                            <ObjectStatus
+                                text="{classes>access}"
+                                state="Success" 
+                                visible="{= ${classes>access} === 'public'}"/>
+                            <ObjectStatus
+                                text="{classes>access}"
+                                state="Error" 
+                                visible="{= ${classes>access} === 'private'}"/>
+                            <FormattedText 
+                                htmlText="{parts:['classes>name','classes>params','classes>returns'], formatter:'.getMethodSignature'}" 
+                                class="fiddleSignature sapUiLargeMarginBottom"/>
+                                
+                            <Table 
+                                items="{classes>params}"
+                                class="sapUiLargeMarginBottom"
+                                headerText="{i18n>be.fiddle.jsdoco.class.methods.parameters}"
+                                visible="{path:'classes>params', formatter:'.isArrayVisible'}">
+                                <columns>
+                                    <Column width="7rem">
+                                        <Text text="Name"/>
+                                    </Column>
+                                    <Column width="12rem">
+                                        <Text text="Type"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="Description" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <ObjectIdentifier title="{classes>name}" />
+                                            <Text text="{path:'classes>type/names', formatter:'.getParamtype'}" />
+                                            <FormattedText htmlText="{classes>description}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+
+                            <Table 
+                                class="sapUiLargeMarginBottom"
+                                items="{classes>returns}"
+                                headerText="{i18n>be.fiddle.jsdoco.class.methods.returns}"
+                                visible="{path:'classes>returns', formatter:'.isArrayVisible'}">
+                                <columns>
+                                    <Column width="12rem"> <Text text="Type"/> </Column>
+                                    <Column> <Text text="Description" /> </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{path:'classes>type/names', formatter:'.getParamtype'}" />
+                                            <FormattedText htmlText="{classes>description}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+
+                            <List 
+                                items="{classes>todo}"
+                                headerText="{i18n>be.fiddle.jsdoco.class.todo}"
+                                visible="{path:'classes>todo', formatter:'.isArrayVisible'}">
+                                <CustomListItem><Text text="{classes>}"/></CustomListItem>
+                            </List>
+
+                        </VBox>
+                    </uxap:ObjectPageSubSection>
+                </uxap:ObjectPageSection>
+
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+    </Page>
+</mvc:View>

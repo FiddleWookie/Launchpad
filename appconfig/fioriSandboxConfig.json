@@ -13,7 +13,7 @@
     "bootstrapPlugins":{
         "IssueLogger":{
             "component":"be.FiddleWookie.IssueLogger",
-            "url":"plugins/sample/issueLogger",
+            "url":"plugins/issueLogger",
             "sap-ushell-plugin-type":"RendererExtensions",
             "enabled":true
         }
@@ -21,9 +21,9 @@
 
     "applications": {
         "jsdoc-display": {
-            "additionalInformation": "SAPUI5.Component=be.fiddle.jsdoc",
+            "additionalInformation": "SAPUI5.Component=be.fiddle.jsdoco",
             "applicationType": "URL",
-            "url": "./",
+            "url": "./apps/jsdoc/webapp",
             "title": "JSDoco application",
             "navigationMode": "embedded"
         }
