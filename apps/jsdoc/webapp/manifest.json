@@ -1,0 +1,131 @@
+{
+	"_version": "0.0.1",
+	"sap.app":{
+		"_version": "0.0.1",
+		"id": "be.fiddle.jsdoco",
+		"type": "library",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"offline":true
+	},
+	"sap.ui": {
+		"_version": "1.52.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_bluecrystal", "sap_belize_plus", "sap_fiori3"]
+	},
+	"sap.ui5": {
+		"_version": "1.52.0",
+		"rootView": {
+			"viewName": "be.fiddle.jsdoco.view.SplitApp",
+			"type": "XML",
+			"id":"root"
+		},
+		"dependencies": {
+			"minUI5Version": "1.52.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "be.fiddle.jsdoco.i18n.i18n"
+				}
+			},
+			"modules":{
+				"type":"sap.ui.model.json.JSONModel"
+			},
+			"classes":{
+				"type":"sap.ui.model.json.JSONModel"
+			}
+		},
+		"resources": {
+			"css": [{"uri":"css/style.css"}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "be.fiddle.jsdoco.view",
+				"controlId": "librarySplit",
+				"controlAggregation": "detailPages",
+				"transition": "fade",
+				"bypassed": {
+					"target": ["Home"]
+				}
+			},
+			"targets": {
+				"Home":{
+					"controlAggregation": "detailPages",
+					"viewName": "Home",
+					"viewId": "Home"
+				},
+				"Namespaces":{
+					"controlAggregation": "masterPages",
+					"viewName": "Namespaces",
+					"viewId": "Namespaces"
+				},
+				"ClassDisplay":{
+					"controlAggregation": "detailPages",
+					"viewName": "ClassDisplay",
+					"viewId": "ClassDisplay"
+				},
+				"NotFound":{
+					"controlAggregation": "detailPages",
+					"viewName": "NotFound",
+					"viewId": "NotFound"
+				},
+				"Classes":{
+					"controlAggregation": "masterPages",
+					"viewName": "Classes",
+					"viewId": "Classes"
+				}
+			},
+			"routes": [
+				{
+					"name": "home",
+					"pattern": "",
+					"greedy": false,
+					"target": ["Namespaces","Home"]
+				},
+				{
+					"name": "ClassDisplay",
+					"pattern": ":node*:",
+					"greedy": false,
+					"target": ["Classes","ClassDisplay"]
+				},
+				{
+					"name": "ClassNotFound",
+					"pattern": "/ClassNotFound/:node*:",
+					"greedy": false,
+					"target": ["Classes","NotFound"]
+				}				
+			]
+		}
+
+	}
+}

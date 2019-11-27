@@ -1,0 +1,18 @@
+<mvc:View	
+	controllerName="be.fiddle.jsdoco.controller.Home" 
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	height="100%"
+	displayBlock="true" >
+	<Page   
+		title="Welcome" 
+    showHeader="true" >
+		<html:div>
+			Welcome to the JSDoc api application. This application automatically scans the content of the launchpad
+			and lists the different components and libraries. You can navigate to the details of any components
+			or library, and the app will parse the JSDOCO in the app.<html:br/>
+			This renders a user friendly display of the information contained in the app or library.
+		</html:div>
+	</Page>
+</mvc:View>

@@ -1,0 +1,18 @@
+<mvc:View	controllerName="be.fiddle.jsdoco.controller.Detail" 
+			xmlns:html="http://www.w3.org/1999/xhtml" 
+			xmlns:mvc="sap.ui.core.mvc" 
+			xmlns="sap.m"
+			height="100%"
+			displayBlock="true" >
+
+    <MessagePage 	showHeader="true" 
+					title="{i18n>be.fiddle.jsdoco.noDoc}"
+					text="{i18n>be.fiddle.jsdoco.oops}"
+					description="{i18n>be.fiddle.jsdoco.noDocFor} {appSettings>/path}"
+					icon="sap-icon://document-text"
+					showNavButton="{appSettings>/isPhone}"
+					navButtonPress="onOpenMasterFromDetail"
+					class="MasterButton">
+	</MessagePage>
+
+</mvc:View>

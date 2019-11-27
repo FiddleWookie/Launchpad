@@ -1,0 +1,17 @@
+<mvc:View	controllerName="be.fiddle.jsdoco.controller.Namespaces" 
+			xmlns:html="http://www.w3.org/1999/xhtml" 
+			xmlns:mvc="sap.ui.core.mvc" 
+			xmlns="sap.m"
+			height="100%"
+			displayBlock="true" >
+    <Page
+			showHeader="true" >
+        <List
+					items="{modules>/}">
+					<StandardListItem 
+            title="{modules>id}" 
+            type="Active"
+            press="selectNamespace"/>
+				</List>
+    </Page>
+</mvc:View>

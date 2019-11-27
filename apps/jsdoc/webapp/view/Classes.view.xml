@@ -1,0 +1,45 @@
+<mvc:View	controllerName="be.fiddle.jsdoco.controller.Classes" 
+			xmlns:html="http://www.w3.org/1999/xhtml" 
+			xmlns:core="sap.ui.core" 
+			xmlns:mvc="sap.ui.core.mvc" 
+			xmlns="sap.m"
+			height="100%"
+			displayBlock="true" >
+
+    <Page 	id="Master" 
+            title="{i18n>be.fiddle.jsdoco}" 
+            icon="sap-icon://action" 
+            showHeader="false">
+        <subHeader>
+            <Toolbar>
+                <Button icon="sap-icon://arrow-top"
+                        press="onToProjects"/>
+                <SearchField 	value="{appSettings>/search}"
+                                liveChange="onSearch"
+                                width="100%" />
+            </Toolbar>
+        </subHeader>
+
+        <content>
+            <Tree 	
+                selectionChange="onItemSelect" 
+                mode="SingleSelectMaster"
+                items="{
+                    path: 'classes>/', 
+                    filters:[{path:'key', operator:'Contains', value1:''}]
+                }"
+                id="treeLib"
+                showUnread="true">
+                <StandardTreeItem title="{classes>key}" class="fiddleBadge">
+                    <customData>
+                        <core:CustomData key="badge" value="{path:'classes>todo',formatter:'.getLength' }" writeToDom="{path:'classes>todo',formatter:'.getVisibleFromArray' }"/>
+                        <core:CustomData key="fiddleBadgeError" value="" writeToDom="true"/>
+                        <core:CustomData key="fiddleBadgeLeft" value="" writeToDom="true"/>
+                    </customData>                
+                </StandardTreeItem>
+            </Tree>
+        </content>
+
+    </Page>
+
+</mvc:View>

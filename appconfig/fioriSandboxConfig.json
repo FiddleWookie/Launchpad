@@ -15,19 +15,13 @@
             "url": "plugins/sample/issueLogger",
             "sap-ushell-plugin-type": "RendererExtensions",
             "enabled": true
-        },
-        "fiori-user-picture-plugin": {
-            "component": "be.elia.bc.flp.ui.pic",
-            "url": "node_modules/fiori-user-picture-plugin/webapp",
-            "sap-ushell-plugin-type": "RendererExtensions",
-            "enabled": true
         }
     },
     "applications": {
         "jsdoc-display": {
-            "additionalInformation": "SAPUI5.Component=be.fiddle.jsdoc",
+            "additionalInformation": "SAPUI5.Component=be.fiddle.jsdoco",
             "applicationType": "URL",
-            "url": "./",
+            "url": "./apps/jsdoc/webapp",
             "title": "JSDoco application",
             "navigationMode": "embedded"
         }

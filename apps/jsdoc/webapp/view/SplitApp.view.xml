@@ -1,0 +1,21 @@
+<mvc:View	xmlns:html="http://www.w3.org/1999/xhtml" 
+			xmlns:uxap="sap.uxap"
+			xmlns:mvc="sap.ui.core.mvc" 
+			xmlns="sap.m"
+			height="100%"
+			displayBlock="true" >
+
+	<SplitApp 	
+		id="librarySplit" 
+		orientationChange="onOrientationChange"				
+		mode="ShowHideMode">
+		
+		<masterPages>
+		</masterPages>
+
+		<detailPages>
+		</detailPages>
+
+	</SplitApp>
+
+</mvc:View>
