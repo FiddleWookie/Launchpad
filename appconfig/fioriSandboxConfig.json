@@ -12,7 +12,7 @@
     "bootstrapPlugins": {
         "IssueLogger": {
             "component": "be.FiddleWookie.IssueLogger",
-            "url": "plugins/sample/issueLogger",
+            "url": "./plugins/issueLogger",
             "sap-ushell-plugin-type": "RendererExtensions",
             "enabled": true
         },
