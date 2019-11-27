@@ -6,7 +6,36 @@
     <title>Fiori Launchpad showcase</title>
 
     <script>
-        window["sap-ushell-config"] = { };
+        window["sap-ushell-config"] = {};
+        function insertParam(key, value) {
+            key = escape(key); value = escape(value);
+
+            var kvp = document.location.search.substr(1).split('&');
+            if (kvp == '') {
+                document.location.search = '?' + key + '=' + value;
+            }
+            else {
+
+                var i = kvp.length; var x; while (i--) {
+                    x = kvp[i].split('=');
+
+                    if (x[0] == key) {
+                        x[1] = value;
+                        kvp[i] = x.join('=');
+                        break;
+                    }
+                }
+
+                if (i < 0) { kvp[kvp.length] = [key, value].join('='); }
+
+                //this will reload the page, it's likely better to store this until finished
+                document.location.search = kvp.join('&');
+            }
+        }
+        if(document.location.href.indexOf("sap-ushell-sandbox-config") === -1){
+            insertParam("sap-ushell-sandbox-config","/Launchpad/appconfig/fioriSandboxConfig");
+        }
+        
         //the launchpad config is in the ./appconfig/fioriSandboxConfig.json file.
         //you'll notice it has samples for apps and plugins.
 
@@ -15,7 +44,7 @@
         * that plugin (or app) shows the list, and when a plugin is selected, it becomes enabled on the launchpad.
         * deselect-> disable. (obviously)
         * so,... todo:
-        * 1) figure out how to list all plugins (easy, window["sap-ushell-config"].bootstrapPlugins, right? 
+        * 1) figure out how to list all plugins (easy, window["sap-ushell-config"].bootstrapPlugins, right?
         *    Maybe not so easy. What if we don't list them immediately in the bootstrap?)
         * 2) figure out a way to disable plugins (HAH!)
         * 3) figure out a way to enable plugins
@@ -28,12 +57,10 @@
         id="sap-ushell-bootstrap"></script>
 
 
-    <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" 
-        id="sap-ui-bootstrap"
-        data-sap-ui-libs="sap.m, sap.ushell, sap.ui.comp" 
-        data-sap-ui-theme="sap_fiori_3"
+    <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" id="sap-ui-bootstrap"
+        data-sap-ui-libs="sap.m, sap.ushell, sap.ui.comp" data-sap-ui-theme="sap_fiori_3"
         data-sap-ui-xx-bindingSyntax="complex">
-    </script>
+        </script>
 
 
     <script>
