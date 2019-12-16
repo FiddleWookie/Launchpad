@@ -1,0 +1,13 @@
+.sapUiShellBackgroundImage {
+  background-image: url("../img/winter.png") !important;
+  background-position: bottom !important;
+  background-size: contain !important;
+}
+
+.sapUiBody {
+  background-image: linear-gradient(to bottom,#f5f5f5,#c8dde2) !important;
+}
+
+.sapUshellShellBG{
+  background-color: unset !important;
+}

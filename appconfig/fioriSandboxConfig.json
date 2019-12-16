@@ -21,6 +21,24 @@
             "url": "node_modules/fiori-user-picture-plugin/webapp",
             "sap-ushell-plugin-type": "RendererExtensions",
             "enabled": true
+        },
+        "ui5-pluginmanager": {
+            "component": "be.fiddle.pluginManager",
+            "url": "node_modules/ui5-pluginmanager/webapp",
+            "sap-ushell-plugin-type": "RendererExtensions",
+            "enabled": true
+        },
+        "ui5-snowflakes": {
+            "component": "be.fiddle.snowflakes",
+            "url": "node_modules/ui5-snowflakes/webapp",
+            "sap-ushell-plugin-type": "RendererExtensions",
+            "enabled": true
+        },
+        "ui5-hideemptygroups": {
+            "component": "be.fiddle.hideEmptyGroups",
+            "url": "node_modules/ui5-hideemptygroups/webapp",
+            "sap-ushell-plugin-type": "RendererExtensions",
+            "enabled": true
         }
     },
     "applications": {

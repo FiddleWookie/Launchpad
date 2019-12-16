@@ -1,0 +1,10 @@
+{
+	"_version": "0.1.0",
+	"sapdeploy" : {
+		"configFile" : "project/.sapdeploy.json",
+		"credentialsFile" : "project/.sapdeployuser.json"
+	},
+	"sapui5" : {
+		"sdk" : "~/sapui5/"
+	}
+}
