@@ -96,6 +96,15 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "id":"empty_group",
+                            "title":"This is an empty group (on purpose)",
+                            "isPreset":true,
+                            "isVisible":true,
+                            "isGroupLocked":false,
+                            "tiles":[
+                            ]
                         }
                     ]
                 }
