@@ -39,6 +39,12 @@
             "url": "node_modules/ui5-hideemptygroups/webapp",
             "sap-ushell-plugin-type": "RendererExtensions",
             "enabled": true
+        },
+        "fiori-whats-new-plugin": {
+            "component": "be.wl.fiori.news",
+            "url": "node_modules/fiori-whats-new-plugin/webapp",
+            "sap-ushell-plugin-type": "RendererExtensions",
+            "enabled": true
         }
     },
     "applications": {

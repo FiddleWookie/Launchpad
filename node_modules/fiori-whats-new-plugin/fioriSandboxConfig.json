@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"ZBC_FIORI_NEWS_PLUGIN": {
+			"component": "be.wl.fiori.news",
+			"url": "../../../../../webapp/"
+		}
+	}
+}

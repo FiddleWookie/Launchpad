@@ -1,0 +1,26 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZBC_FIORI_WHATS_NEW_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="File" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="Name"/></Key><Property Name="Size" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="0" sap:unicode="false" sap:label="Size"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="File Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileText" Type="Edm.String" Nullable="false" MaxLength="1024" sap:unicode="false" sap:label="String" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FileInfo" sap:content-version="1">
+				<Key><PropertyRef Name="Name"/></Key><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="File Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Size" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="0" sap:unicode="false" sap:label="Size"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileText" Type="Edm.String" Nullable="false" MaxLength="1024" sap:unicode="false" sap:label="String" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<ComplexType Name="ShowNoMore"><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="254" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+				sap:filterable="false"/></ComplexType>
+			<EntityContainer Name="ZBC_FIORI_WHATS_NEW_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="FileSet" EntityType="ZBC_FIORI_WHATS_NEW_SRV.File" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="FileInfoSet" EntityType="ZBC_FIORI_WHATS_NEW_SRV.FileInfo" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><FunctionImport Name="ShowNoMore" ReturnType="ZBC_FIORI_WHATS_NEW_SRV.ShowNoMore" m:HttpMethod="GET"
+				sap:action-for="ZBC_FIORI_WHATS_NEW_SRV.File"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZBC_FIORI_WHATS_NEW_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZBC_FIORI_WHATS_NEW_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

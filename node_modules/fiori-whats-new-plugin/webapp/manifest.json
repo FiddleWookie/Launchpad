@@ -1,0 +1,70 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "be.wl.fiori.news",
+		"type": "component",
+		"applicationVersion": {
+			"version": ""
+		},
+		"title": "{{plugin_title}}",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZODATA_WHATS_NEW_SRV/",
+				"settings": {
+					"localUri": "./localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": []
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"contentDensities": {
+			"compact": true,
+			"cozy": false
+		},
+		"dependencies": {
+			"minUI5Version": "1.38.1",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.38.1"
+				},
+				"sap.m": {
+					"minVersion": "1.38.1"
+				}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "be.wl.fiori.news.i18n.i18n"
+				}
+			},
+			"files": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "None"
+				}
+			}
+		},
+		"componentName": "be.wl.fiori.news"
+	},
+	"sap.flp": {
+		"type": "plugin",
+		"config": {}
+	}
+}

@@ -1,0 +1,41 @@
+{
+  "welcomeFile": "index.html",
+  "routes": [
+    {
+      "path": "/resources/be/wl/fiori/news",
+      "target": {
+        "type": "application",
+        "name": "ZBC_FIORI_NEWS_PLUGIN"
+      }
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.60.6"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.60.6"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "G2D",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "G2D"
+    }
+  ]
+}

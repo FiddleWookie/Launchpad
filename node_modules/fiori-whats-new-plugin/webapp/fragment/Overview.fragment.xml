@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<ResponsivePopover placement="Bottom" showHeader="false">
+		<beginButton></beginButton>
+		<endButton></endButton>
+		<content>
+			<List items="{state>/FolderSet}">
+				<NotificationListItem
+					title="{i18n>there} {= ${state>AmountFiles} > 0 ? ${i18n>are}:${i18n>is}} {state>AmountFiles} {i18n>new} {= ${state>AmountFiles} > 0 ? ${i18n>features}:${i18n>feature}} {i18n>infiori}"
+					description="" priority="{= ${state>Status}?'Low':'None' }" showCloseButton="false"
+					datetime="{path: 'state>Date', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/YYYY' , UTC:true}}" unread="true"
+					press=".onOpenSpecificWhatsNew"></NotificationListItem>
+			</List>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

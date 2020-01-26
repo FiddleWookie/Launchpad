@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:v="be.wl.fiori.news.control" xmlns:l="sap.ui.layout"
+	xmlns:h="sap/ui/core/HTML">
+	<Dialog icon="sap-icon://newspaper" title="{i18n>whatsnewfiori}">
+		<content>
+			<Carousel class="sapUiContentPadding" loop="true" pages="{state>FileInfo}">
+				<pages>
+					<l:VerticalLayout width="100%">
+						<Text text="{i18n>videoLoading}" visible="{state>/videosAreLoading}"></Text>
+						<!--<Image src="/sap/opu/odata/sap/ZODATA_WHATS_NEW_SRV/FileSet('{state>Name}')/$value" visible="{= ${state>FileType} === 'image' }"-->
+						<!--	width="100%"/>-->
+						<Image src="{state>Name}" visible="{= ${state>FileType} === 'image' }" width="100%"/>
+						<l:VerticalLayout busy="{state>/videosAreLoading}" width="100%">
+							<!--<v:Video src="{state>videoUrl}" type="{state>FileMimetype}" visible="{= ${state>FileType} === 'video' }" width="100%"/>-->
+							<v:Video src="{state>videoUrl}" type="{state>FileMimetype}" visible="{= ${state>FileType} === 'video' }" width="100%"/>
+						</l:VerticalLayout>
+						<FormattedText htmlText="{ path:'state>FileText' }"/>
+					</l:VerticalLayout>
+				</pages>
+			</Carousel>
+		</content>
+		<endButton>
+			<Button icon="sap-icon://decline" press=".onCloseOptions"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

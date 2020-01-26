@@ -25,6 +25,7 @@
   "dependencies": {
     "find": "^0.3.0",
     "fiori-user-picture-plugin": "0.0.1",
+    "fiori-whats-new-plugin": "0.0.1",
     "fs": "0.0.1-security",
     "ui5-hideemptygroups": "^1.0.2",
     "ui5-pluginmanager": "^1.0.3",

@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ActionSheet showCancelButton="false" placement="Auto">
+		<Button text="{i18n>close}" press=".onClose"/>
+		<Button text="{i18n>showagain}" press=".onDontShowAgain"/>
+	</ActionSheet>
+</core:FragmentDefinition>
