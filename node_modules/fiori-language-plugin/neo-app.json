@@ -1,0 +1,36 @@
+{
+	"welcomeFile": "index.html",
+	"routes": [{
+		"path": "/sap/opu/odata",
+		"target": {
+			"type": "destination",
+			"name": "G2D",
+			"entryPath": "/sap/opu/odata"
+		},
+		"description": "G2D"
+	}, {
+		"path": "/resources/be/wl/fiori/lang",
+		"target": {
+			"type": "application",
+			"name": "FioriLanguagePlugin"
+		}
+	}, {
+		"path": "/resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/resources",
+			"version": "1.60.9"
+		},
+		"description": "SAPUI5 Resources"
+	}, {
+		"path": "/test-resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/test-resources",
+			"version": "1.60.9"
+		},
+		"description": "SAPUI5 Test Resources"
+	}]
+}

@@ -45,6 +45,18 @@
             "url": "node_modules/fiori-whats-new-plugin/webapp",
             "sap-ushell-plugin-type": "RendererExtensions",
             "enabled": true
+        },
+        "fiori-language-plugin": {
+            "component": "be.wl.fiori.lang",
+            "url": "node_modules/fiori-language-plugin/webapp",
+            "sap-ushell-plugin-type": "RendererExtensions",
+            "enabled": true
+        },
+        "fiori-google-analytics-plugin": {
+            "component": "be.wl.fiori.ga",
+            "url": "node_modules/fiori-google-analytics-plugin/webapp",
+            "sap-ushell-plugin-type": "RendererExtensions",
+            "enabled": true
         }
     },
     "applications": {

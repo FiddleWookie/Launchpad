@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ResponsivePopover class="sapUiPopupWithPadding" placement="Bottom" showHeader="false">
+		<content>
+			<List items="{/LanguageSet}" mode="SingleSelectMaster" selectionChange=".onSelectNewLanguage">
+				<StandardListItem title="{Sptxt}" description="{Sprsl}" selected="{= ${state>/CurrentLanguage} === ${Sprsl} }"/>
+			</List>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"FioriGoogleAnalyticsPlugin": {
+			"component": "be.wl.fiori.ga",
+			"url": "../../../../../webapp/"
+		}
+	}
+}

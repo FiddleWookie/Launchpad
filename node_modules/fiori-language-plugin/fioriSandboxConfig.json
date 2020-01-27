@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"FioriLanguagePlugin": {
+			"component": "be.wl.fiori.lang",
+			"url": "../../../../../webapp/"
+		}
+	}
+}

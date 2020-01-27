@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "find": "^0.3.0",
+    "fiori-google-analytics-plugin": "0.0.1",
+    "fiori-language-plugin": "0.0.1",
     "fiori-user-picture-plugin": "0.0.1",
     "fiori-whats-new-plugin": "0.0.1",
     "fs": "0.0.1-security",
