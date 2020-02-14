@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"HeartFlakes": {
+			"component": "be.swolfs.ch.heart",
+			"url": "../../../../../webapp/"
+		}
+	}
+}

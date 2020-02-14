@@ -1,0 +1,64 @@
+specVersion: '1.0'
+metadata:
+  name: zbc_heart_plugin
+type: application
+server:
+  customMiddleware:
+    - name: odataProxy
+      beforeMiddleware: serveResources
+builder:
+  bundles:
+  - bundleDefinition:
+      name: be/swolfs/ch/heart/Component-preload.js
+      defaultFileTypes:
+      - ".js"
+      - ".json"
+      - ".xml"
+      - ".html"
+      - ".library"
+      sections:
+      - mode: raw
+        filters:
+        - be/swolfs/ch/heart/regenerator-runtime/runtime.js
+      - mode: preload
+        filters:
+        - be/swolfs/ch/heart/controller/**
+        - be/swolfs/ch/heart/manifest.json
+        - be/swolfs/ch/heart/manifest.json
+        - be/swolfs/ch/heart/Component.js
+        - be/swolfs/ch/heart/i18n/**
+        - be/swolfs/ch/heart/model/**
+        - be/swolfs/ch/heart/ui5fixes/**
+        - be/swolfs/ch/heart/util/**
+        - be/swolfs/ch/heart/view/**
+        - be/swolfs/ch/heart/libs/**
+        - be/swolfs/ch/heart/test/**
+        - be/swolfs/ch/heart/service/**
+        - be/swolfs/ch/heart/state/**
+        - be/swolfs/ch/heart/localService/**
+        resolve: false
+        sort: true
+        declareModules: false
+    bundleOptions:
+      optimize: true
+      usePredefineCalls: true
+  customTasks:
+    - name: babel
+      afterTask: replaceVersion
+---
+# Task extension as part of your project
+specVersion: "1.0"
+kind: extension
+type: task
+metadata:
+  name: babel
+task:
+  path: lib/tasks/babel.js
+---
+specVersion: "1.0"
+kind: extension
+type: server-middleware
+metadata:
+  name: odataProxy
+middleware:
+  path: lib/middleware/odataProxy.js

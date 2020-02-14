@@ -1,0 +1,54 @@
+image: node:latest
+
+stages:
+  - init
+  - validation
+  - build
+  - deploy
+ 
+before_script:
+  - echo "test"
+  - pwd
+  - whoami
+  - echo "$CI_BUILD_REPO"
+  - echo "$CI_BUILD_NAME"
+  - echo "$CI_PIPELINE_ID"
+  - echo "$CI_PIPELINE_IID"
+  - echo "$CI_COMMIT_REF_SLUG"
+  - echo "$ABAP_DEVELOPMENT_SERVER_HOST"
+  - echo $ABAP_DEVELOPMENT_SERVER_HOST
+
+init-ci:
+  stage: init
+  script:
+    - sudo npm install
+  artifacts:
+    paths:
+    - node_modules/
+
+code-validation: 
+   stage: validation 
+   script: 
+     - npm run lint
+   dependencies:
+    - init-ci
+    
+build-app: 
+   stage: build 
+   script: 
+     - npm run build
+   dependencies:
+    - init-ci
+   artifacts:
+    paths:
+    - dist/
+
+deploy-abap: 
+   stage: deploy 
+   script: 
+     - npm run deploy
+   dependencies:
+    - init-ci
+    - build-app
+   only:
+    - master

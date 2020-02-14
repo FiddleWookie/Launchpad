@@ -1,0 +1,30 @@
+{
+  "welcomeFile": "index.html",
+  "routes": [
+    {
+      "path": "/resources/be/swolfs/ch/heart",
+      "target": {
+        "type": "application",
+        "name": "heartFlakes"
+      }
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    }
+  ]
+}
