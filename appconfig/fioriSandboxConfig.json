@@ -60,7 +60,7 @@
         },
         "ui5-plugins-heartfelt": {
             "component": "be.swolfs.ch.heart",
-            "url": "node_modules/ui5-plugins-heartfelt/webapp",
+            "url": "node_modules/ui5-plugins-heartfelt/resources",
             "sap-ushell-plugin-type": "RendererExtensions",
             "enabled": true
         }

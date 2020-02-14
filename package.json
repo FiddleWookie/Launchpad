@@ -32,7 +32,8 @@
     "ui5-hideemptygroups": "^1.0.2",
     "ui5-pluginmanager": "^1.0.3",
     "ui5-plugins-heartfelt": "0.0.1",
-    "ui5-snowflakes": "^1.0.2"
+    "ui5-snowflakes": "^1.0.2",
+    "ui5-valentine": "^1.0.2"
   },
   "devDependencies": {
     "grunt": "^1.0.1",

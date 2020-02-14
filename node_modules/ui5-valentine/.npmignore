@@ -1,0 +1,50 @@
+# build artefacts
+build
+dist
+
+# Eclipse
+.project
+.classpath
+.settings/
+.launch
+.launch/
+
+# Netbeans
+nb-configuration.xml
+
+# IntelliJ
+.idea/
+*.iml/
+*.iws
+
+# visual studio code
+.vscode
+.vscode/tasks.json
+.vs
+
+# Mac
+.DS_Store
+
+# Maven
+target/
+
+# Node
+node_modules
+npm-debug.log
+
+# bower
+bower_components
+
+# eslint
+eslint.log
+eslint.tap
+
+# Credentialsfile
+project/.sapdeployuser.json
+
+# SAPUI5 Sources
+sapui5_sources
+
+# Other
+log
+bin
